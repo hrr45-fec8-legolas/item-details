@@ -1,22 +1,3 @@
-// Get Initial Load “/api/product_details” = {
-//   productName: String,
-  // producer: String,
-  // answeredQuestions: Number
-  // numberOfRatings: Number,
-  // Stars: Number,
-  // Star percentages: {
-  //   one: Number,
-  //   two: Number,
-  //   three: Number,
-  //   four: Number,
-  //   five: Number
-  // }
-//   price: Number,
-//   inStock: Boolean,
-//   productInfo: String,
-// }
-
-
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/items');
@@ -29,6 +10,7 @@ db.once('open', function() {
 });
 
 let itemDetailsSchema = new mongoose.Schema({
+  id: Number,
   productName: String,
   producer: String,
   answeredQuestions: Number,

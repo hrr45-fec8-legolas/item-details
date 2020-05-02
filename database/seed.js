@@ -3,15 +3,15 @@ const faker = require('faker');
 
 Item.deleteMany()
 
-for (let i = 0; i < 1; i++) {
-  let fives = Math.random() / 5;
-  console.log(fives)
-  let fours = Math.random() / 5;
-  let threes = Math.random() / 5;
-  let twos = Math.random() / 5;
-  let ones = 1 - fives - fours - threes - twos;
+for (let i = 0; i < 100; i++) {
+  let fives = Math.floor(Math.random() * 100);
+  let fours = Math.floor(Math.random() * 100);
+  let threes = Math.floor(Math.random() * 100);
+  let twos = Math.floor(Math.random() * 100);
+  let ones = Math.floor(Math.random() * 100);
+  let ratingsTotal = ones + twos + threes + fours + fives;
   let productInfo = [];
-  for (let i = 0 ; i < Math.floor(Math.random() * 10) + 1; i++) {
+  for (let j = 0 ; j < Math.floor(Math.random() * 10) + 1; j++) {
     let detail = Math.random();
     if (detail > 0 && detail <= 1/3) {
       productInfo.push(faker.lorem.sentence());
@@ -22,16 +22,17 @@ for (let i = 0; i < 1; i++) {
     }
   }
   let item = new Item({
+    id: i,
     productName: faker.commerce.productName(),
     producer: faker.company.companyName(),
     answeredQuestions: Math.floor(Math.random() * 100),
-    numberOfRatings: Math.floor(Math.random() * 100),
+    numberOfRatings: ratingsTotal,
     starPercentages: {
-      one: ones,
-      two: twos,
-      three: threes,
-      four: fours,
-      five: fives
+      one: ones / ratingsTotal,
+      two: twos / ratingsTotal,
+      three: threes / ratingsTotal,
+      four: fours / ratingsTotal,
+      five: fives / ratingsTotal
     },
     price: (10000* Math.random()).toFixed(2),
     inStock: Math.random() > .5,
