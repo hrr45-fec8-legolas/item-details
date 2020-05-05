@@ -1,7 +1,7 @@
 const Item = require('./database');
 
-let getAllDocuments = (callback) => {
-  Item.find((err, item) => {
+let getAllDocuments = (itemId, callback) => {
+  Item.find({id: itemId}, (err, item) => {
     if (err) {
       console.log(err);
       callback(err, null);

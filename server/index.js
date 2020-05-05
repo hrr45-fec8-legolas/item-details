@@ -11,13 +11,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
 
-app.get('/items', (req, res) => {
-  db((err, success) => {
+app.get('/items/:id', (req, res) => {
+  let itemId = req.params.id;
+  db(itemId, (err, success) => {
     if (err) {
       console.log(err);
       res.sendStatus(404).end();
     } else {
-      res.json(success).end();
+      res.send(success[0]).end();
     }
   })
 })
