@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/items');
 
-let db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
+db.once('open', () => {
   console.log('connection is open');
 });
 
-let itemDetailsSchema = new mongoose.Schema({
+const itemDetailsSchema = new mongoose.Schema({
   id: Number,
   productName: String,
   producer: String,
@@ -20,13 +20,13 @@ let itemDetailsSchema = new mongoose.Schema({
     two: Number,
     three: Number,
     four: Number,
-    five: Number
+    five: Number,
   },
   price: Number,
   inStock: Boolean,
-  productInfo: []
+  productInfo: [],
 });
 
-let Item = mongoose.model('Item', itemDetailsSchema);
+const Item = mongoose.model('Item', itemDetailsSchema);
 
 module.exports = Item;
