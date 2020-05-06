@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Producer from './components/Producer.jsx';
-import ItemName from './components/ItemName.jsx';
-import AnsweredQuestions from './components/AnsweredQuestions.jsx';
-import NumberOfRatings from './components/NumberOfRatings.jsx';
-import Price from './components/Price.jsx';
-import InStock from './components/InStock.jsx';
-import ItemDetails from './components/ItemDetails.jsx';
+import Producer from './components/Producer';
+import ItemName from './components/ItemName';
+import AnsweredQuestions from './components/AnsweredQuestions';
+import NumberOfRatings from './components/NumberOfRatings';
+import Price from './components/Price';
+import InStock from './components/InStock';
+import ItemDetails from './components/ItemDetails';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,20 +24,20 @@ class App extends React.Component {
           two: -5,
           three: -5,
           four: -5,
-          five: -5
+          five: -5,
         },
         price: -5,
         inStock: true,
-        productInfo: ['dummy', 'dummy', 'dummy', 'dummy', 'dummy']
-      }
-    }
+        productInfo: ['dummy', 'dummy', 'dummy', 'dummy', 'dummy'],
+      },
+    };
 
     this.getData = this.getData.bind(this);
   }
 
   componentDidMount() {
     this.getData(window.location.href.slice(26));
-  };
+  }
 
   getData(itemId) {
     $.ajax({
@@ -45,10 +45,10 @@ class App extends React.Component {
       type: 'GET',
       success: (data) => {
         this.setState({
-          data: data
-        })
-      }
-    })
+          data,
+        });
+      },
+    });
   }
 
   render() {
@@ -58,15 +58,15 @@ class App extends React.Component {
         {/* {this.state.data.map((item, key)=> {
           return (<p key={key}>{JSON.stringify(item)}</p>)
         })} */}
-        <Producer producer={this.state.data.producer}/>
-        <ItemName name={this.state.data.productName}/>
-        <Price price={this.state.data.price}/>
-        <InStock inStock={this.state.data.inStock}/>
-        <AnsweredQuestions answeredQuestions={this.state.data.answeredQuestions}/>
-        <NumberOfRatings numberOfRatings={this.state.data.numberOfRatings}/>
-        <ItemDetails details={this.state.data.productInfo}/>
+        <Producer producer={this.state.data.producer} />
+        <ItemName name={this.state.data.productName} />
+        <Price price={this.state.data.price} />
+        <InStock inStock={this.state.data.inStock} />
+        <AnsweredQuestions answeredQuestions={this.state.data.answeredQuestions} />
+        <NumberOfRatings numberOfRatings={this.state.data.numberOfRatings} />
+        <ItemDetails details={this.state.data.productInfo} />
       </div>
-    )
+    );
   }
 }
 

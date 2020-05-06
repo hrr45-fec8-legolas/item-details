@@ -1,20 +1,13 @@
 import React from 'react';
 
-class AnsweredQuestions extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const AnsweredQuestions = (props) => (
+  <div>
+    <p>
+      Answered Questions:
+      {props.answeredQuestions}
+    </p>
+  </div>
+);
 
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        <p>Answered Questions: {this.props.answeredQuestions}</p>
-      </div>
-    )
-  }
-}
 
 export default AnsweredQuestions;

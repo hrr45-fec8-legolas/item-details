@@ -5,15 +5,18 @@ class Price extends React.Component {
     super(props);
     this.state = {
 
-    }
+    };
   }
 
   render() {
     return (
       <div>
-        <p>Price: {this.props.price}</p>
+        <p>
+          Price:
+          {this.props.price}
+        </p>
       </div>
-    )
+    );
   }
 }
 
