@@ -1,20 +1,15 @@
 import React from 'react';
 
-class Producer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        <a href="">{this.props.producer}</a>
-      </div>
-    )
-  }
-}
+const Producer = (props) => (
+  <div className="Producer-Name">
+    <p>
+      by
+      <em> </em>
+      <a className="Orange-To-Blue">
+        {props.producer}
+      </a>
+    </p>
+  </div>
+);
 
 export default Producer;

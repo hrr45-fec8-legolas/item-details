@@ -28,11 +28,11 @@ for (let i = 0; i < 100; i++) {
     answeredQuestions: Math.floor(Math.random() * 100),
     numberOfRatings: ratingsTotal,
     starPercentages: {
-      one: ones / ratingsTotal,
-      two: twos / ratingsTotal,
-      three: threes / ratingsTotal,
-      four: fours / ratingsTotal,
-      five: fives / ratingsTotal
+      one: ones,
+      two: twos,
+      three: threes,
+      four: fours,
+      five: fives,
     },
     price: (10000* Math.random()).toFixed(2),
     inStock: Math.random() > .5,
