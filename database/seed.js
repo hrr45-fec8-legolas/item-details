@@ -1,27 +1,27 @@
-const Item = require('./database.js');
 const faker = require('faker');
+const Item = require('./database.js');
 
-Item.deleteMany()
+Item.deleteMany();
 
-for (let i = 0; i < 100; i++) {
-  let fives = Math.floor(Math.random() * 100);
-  let fours = Math.floor(Math.random() * 100);
-  let threes = Math.floor(Math.random() * 100);
-  let twos = Math.floor(Math.random() * 100);
-  let ones = Math.floor(Math.random() * 100);
-  let ratingsTotal = ones + twos + threes + fours + fives;
-  let productInfo = [];
-  for (let j = 0 ; j < Math.floor(Math.random() * 10) + 1; j++) {
-    let detail = Math.random();
-    if (detail > 0 && detail <= 1/3) {
+for (let i = 0; i < 100; i += 1) {
+  const fives = Math.floor(Math.random() * 100);
+  const fours = Math.floor(Math.random() * 100);
+  const threes = Math.floor(Math.random() * 100);
+  const twos = Math.floor(Math.random() * 100);
+  const ones = Math.floor(Math.random() * 100);
+  const ratingsTotal = ones + twos + threes + fours + fives;
+  const productInfo = [];
+  for (let j = 0; j < Math.floor(Math.random() * 10) + 1; j += 1) {
+    const detail = Math.random();
+    if (detail > 0 && detail <= 1 / 3) {
       productInfo.push(faker.lorem.sentence());
-    } else if (detail > 1/3 && detail <= 2/3) {
+    } else if (detail > 1 / 3 && detail <= 2 / 3) {
       productInfo.push(faker.lorem.paragraph());
-    } else if (detail > 2/3 && detail <= 1) {
+    } else if (detail > 2 / 3 && detail <= 1) {
       productInfo.push(faker.lorem.paragraphs());
     }
   }
-  let item = new Item({
+  const item = new Item({
     id: i,
     productName: faker.commerce.productName(),
     producer: faker.company.companyName(),
@@ -34,9 +34,9 @@ for (let i = 0; i < 100; i++) {
       four: fours,
       five: fives,
     },
-    price: (10000* Math.random()).toFixed(2),
-    inStock: Math.random() > .5,
-    productInfo: productInfo
+    price: (10000 * Math.random()).toFixed(2),
+    inStock: Math.random() > 0.5,
+    productInfo,
   });
   item.save();
 }
@@ -46,5 +46,7 @@ Item.find((err, item) => {
     console.log(err);
   } else {
     console.log(item);
+    return item;
   }
-})
+  return undefined;
+});

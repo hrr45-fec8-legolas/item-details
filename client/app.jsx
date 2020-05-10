@@ -3,12 +3,35 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Producer from './components/Producer';
 import ItemName from './components/ItemName';
-import AnsweredQuestions from './components/AnsweredQuestions';
 import NumberOfRatings from './components/NumberOfRatings';
 import Price from './components/Price';
-import InStock from './components/InStock';
 import ItemDetails from './components/ItemDetails';
-import PurchaseColumn from './components/PurchaseColumn'
+import PurchaseColumn from './components/PurchaseColumn';
+
+const handleStarsMouseEnter = () => {
+  setTimeout(() => {
+    document.getElementsByClassName('Star-Modal')[0].style.display = 'block';
+  }, 250);
+};
+
+const handleStarsMouseLeave = () => {
+  setTimeout(() => {
+    document.getElementsByClassName('Star-Modal')[0].style.display = 'none';
+  }, 250000);
+};
+
+const handleStarModalMouseEnter = () => {
+  setTimeout(() => {
+    document.getElementsByClassName('Star-Modal')[0].style.display = 'block';
+  }, 25);
+};
+
+const handleStarModalMouseLeave = () => {
+  setTimeout(() => {
+    document.getElementsByClassName('Star-Modal')[0].style.display = 'none';
+  }, 200);
+};
+
 
 class App extends React.Component {
   constructor(props) {
@@ -31,17 +54,12 @@ class App extends React.Component {
         inStock: true,
         productInfo: ['dummy', 'dummy', 'dummy', 'dummy', 'dummy'],
       },
-      postion: 5,
       starRating: 5,
     };
 
     this.getData = this.getData.bind(this);
     this.getStarPosition = this.getStarPosition.bind(this);
     this.getStarRating = this.getStarRating.bind(this);
-    this.handleStarsMouseEnter = this.handleStarsMouseEnter.bind(this);
-    this.handleStarsMouseLeave = this.handleStarsMouseLeave.bind(this);
-    this.handleStarModalMouseEnter = this.handleStarModalMouseEnter.bind(this);
-    this.handleStarModalMouseLeave = this.handleStarModalMouseLeave.bind(this);
   }
 
   componentDidMount() {
@@ -64,12 +82,13 @@ class App extends React.Component {
 
   getStarPosition() {
     let position;
-    let starRating =
-    (this.state.data.starPercentages.one +
-    2 * this.state.data.starPercentages.two +
-    3 * this.state.data.starPercentages.three +
-    4 * this.state.data.starPercentages.four +
-    5 * this.state.data.starPercentages.five) / this.state.data.numberOfRatings;
+    const { data } = this.state;
+    const starRating = (data.starPercentages.one
+      + 2 * data.starPercentages.two
+      + 3 * data.starPercentages.three
+      + 4 * data.starPercentages.four
+      + 5 * data.starPercentages.five)
+      / data.numberOfRatings;
     if (starRating < 0.25) {
       position = 85;
     } else if (starRating >= 0.25 && starRating < 0.75) {
@@ -99,55 +118,44 @@ class App extends React.Component {
   }
 
   getStarRating() {
-    let starRating =
-    (this.state.data.starPercentages.one +
-    2 * this.state.data.starPercentages.two +
-    3 * this.state.data.starPercentages.three +
-    4 * this.state.data.starPercentages.four +
-    5 * this.state.data.starPercentages.five) / this.state.data.numberOfRatings;
+    const { data } = this.state;
+    let starRating = (data.starPercentages.one
+      + 2 * data.starPercentages.two
+      + 3 * data.starPercentages.three
+      + 4 * data.starPercentages.four
+      + 5 * data.starPercentages.five)
+      / data.numberOfRatings;
     starRating = starRating.toFixed(2);
     this.setState({
       starRating,
     });
   }
 
-  handleStarsMouseEnter() {
-    setTimeout(() => {
-        document.getElementsByClassName('Star-Modal')[0].style.display = 'block';
-      }, 250);
-    }
-
-  handleStarsMouseLeave() {
-    setTimeout(() => {
-        document.getElementsByClassName('Star-Modal')[0].style.display = 'none';
-      }, 250000);
-    }
-
-  handleStarModalMouseEnter() {
-    setTimeout(() => {
-      document.getElementsByClassName('Star-Modal')[0].style.display = 'block';
-    }, 25);
-  }
-
-  handleStarModalMouseLeave() {
-    setTimeout(() => {
-      document.getElementsByClassName('Star-Modal')[0].style.display = 'none';
-    }, 200);
-  }
-
   render() {
+    const { data } = this.state;
+    const { starRating } = this.state;
+    const { position } = this.state;
     return (
       <div>
         <div className="Left-Col">
-          <ItemName name={this.state.data.productName} />
-          <Producer producer={this.state.data.producer} />
-          <NumberOfRatings starModalMouseEnter={this.handleStarModalMouseEnter} starModalMouseLeave={this.handleStarModalMouseLeave} onMouseOver={this.handleStarsMouseEnter} onMouseLeave={this.handleStarsMouseLeave} starRating={this.state.starRating} stars={this.state.data.starPercentages}
-          starPosition={this.state.position} numberOfRatings={this.state.data.numberOfRatings} />
-          <hr></hr>
-          <Price price={this.state.data.price} />
-          <ItemDetails details={this.state.data.productInfo} />
+          <ItemName name={data.productName} />
+          <Producer producer={data.producer} />
+          <NumberOfRatings
+            starModalMouseEnter={handleStarModalMouseEnter}
+            starModalMouseLeave={handleStarModalMouseLeave}
+            onMouseOver={handleStarsMouseEnter}
+            onFocus={handleStarsMouseEnter}
+            onMouseLeave={handleStarsMouseLeave}
+            starRating={starRating}
+            stars={data.starPercentages}
+            starPosition={position}
+            numberOfRatings={data.numberOfRatings}
+          />
+          <hr />
+          <Price price={data.price} />
+          <ItemDetails details={data.productInfo} />
         </div>
-        <PurchaseColumn price={this.state.data.price.toFixed(2)} />
+        <PurchaseColumn price={data.price.toFixed(2)} />
       </div>
     );
   }
