@@ -1,74 +1,159 @@
 import React from 'react';
 
-const getPercentage = (numerator, denominator) => {
-  return (100 * (numerator / denominator)).toFixed(0);
+const getPercentage = (numerator, denominator) => (100 * (numerator / denominator)).toFixed(0);
+
+class StarModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
+
+  render() {
+    const { onMouseEnter } = this.props;
+    const { onMouseLeave } = this.props;
+    const { starPosition } = this.props;
+    const { starRating } = this.props;
+    const { numberOfRatings } = this.props;
+    const { stars } = this.props;
+    return (
+      <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className="Star-Modal">
+        <span>
+          <span className="Stars-Span">
+            <i style={{ backgroundPosition: `-${starPosition}px -368px` }} className="Stars" />
+          </span>
+        </span>
+        <span>  </span>
+        <b className="Star-Rating-Out-Of">
+          {starRating}
+          <span> </span>
+          out of 5
+        </b>
+        <br />
+        <br />
+        <span className="Star-Modal-Number-Of-Ratings">
+          {numberOfRatings}
+          <span> </span>
+          customer ratings
+        </span>
+        <br />
+        <br />
+        <div className="Star-Bar-Container">
+          <a href className="Orange-To-Blue">
+            <span className="Star-Bar-Number-Of-Stars">5 star</span>
+            <div className="Star-Bar">
+              <div
+                style={{ width: 2.23 * getPercentage(stars.five, numberOfRatings) }}
+                className="Star-Progress-Bar"
+              />
+            </div>
+            <span className="Star-Percentage">
+              {getPercentage(stars.five, numberOfRatings)}
+              %
+            </span>
+          </a>
+        </div>
+        <div className="Star-Bar-Container">
+          <a href className="Orange-To-Blue">
+            <span className="Star-Bar-Number-Of-Stars">4 star</span>
+            <div className="Star-Bar">
+              <div
+                style={{ width: 2.23 * getPercentage(stars.four, numberOfRatings) }}
+                className="Star-Progress-Bar"
+              />
+            </div>
+            <span className="Star-Percentage">
+              {getPercentage(stars.four, numberOfRatings)}
+              %
+            </span>
+          </a>
+        </div>
+        <div className="Star-Bar-Container">
+          <a href className="Orange-To-Blue">
+            <span className="Star-Bar-Number-Of-Stars">3 star</span>
+            <div className="Star-Bar">
+              <div
+                style={{ width: 2.23 * getPercentage(stars.three, numberOfRatings) }}
+                className="Star-Progress-Bar"
+              />
+            </div>
+            <span className="Star-Percentage">
+              {getPercentage(stars.three, numberOfRatings)}
+              %
+            </span>
+          </a>
+        </div>
+        <div className="Star-Bar-Container">
+          <a href className="Orange-To-Blue">
+            <span className="Star-Bar-Number-Of-Stars">2 star</span>
+            <div className="Star-Bar">
+              <div
+                style={{ width: 2.23 * getPercentage(stars.two, numberOfRatings) }}
+                className="Star-Progress-Bar"
+              />
+            </div>
+            <span className="Star-Percentage">
+              {getPercentage(stars.two, numberOfRatings)}
+              %
+            </span>
+          </a>
+        </div>
+        <div className="Star-Bar-Container">
+          <a href className="Orange-To-Blue">
+            <span className="Star-Bar-Number-Of-Stars">1 star</span>
+            <div className="Star-Bar">
+              <div
+                style={{ width: 2.23 * getPercentage(stars.one, numberOfRatings) }}
+                className="Star-Progress-Bar"
+              />
+            </div>
+            <span className="Star-Percentage">
+              {getPercentage(stars.one, numberOfRatings)}
+              %
+            </span>
+          </a>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div className="See-Customer-Reviews">
+          <a href className="Orange-To-Blue">See all customer reviews</a>
+        </div>
+        <br />
+      </div>
+    );
+  }
+}
+
+StarModal.defaultProps = {
+  onMouseLeave: Function,
+  onMouseEnter: Function,
+  starPosition: String,
+  numberOfRatings: Number,
+  starRating: Number,
+  stars: {
+    five: Number,
+    four: Number,
+    three: Number,
+    two: Number,
+    one: Number,
+  },
 };
 
-const StarModal = (props) => {
-  return (
-    <div onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave} className="Star-Modal">
-      <span>
-            <span className="Stars-Span">
-              <i style={{ backgroundPosition: `-${props.starPosition}px -368px` }} className="Stars"></i>
-            </span>
-      </span>
-      <span>  </span>
-      <b className="Star-Rating-Out-Of">{props.starRating} out of 5</b>
-      <br></br><br></br>
-      <span className="Star-Modal-Number-Of-Ratings">{props.numberOfRatings} customer ratings</span>
-      <br></br><br></br>
-      <div className="Star-Bar-Container">
-        <a className="Orange-To-Blue">
-          <span className="Star-Bar-Number-Of-Stars">5 star</span>
-          <div className="Star-Bar">
-            <div style={{width: 2.23 * getPercentage(props.stars.five, props.numberOfRatings)}} className="Star-Progress-Bar"></div>
-          </div>
-          <span className="Star-Percentage">{getPercentage(props.stars.five, props.numberOfRatings)}%</span>
-        </a>
-      </div>
-      <div className="Star-Bar-Container">
-        <a className="Orange-To-Blue">
-          <span className="Star-Bar-Number-Of-Stars">4 star</span>
-          <div className="Star-Bar">
-            <div style={{width: 2.23 * getPercentage(props.stars.four, props.numberOfRatings)}} className="Star-Progress-Bar"></div>
-          </div>
-          <span className="Star-Percentage">{getPercentage(props.stars.four, props.numberOfRatings)}%</span>
-        </a>
-      </div>
-      <div className="Star-Bar-Container">
-        <a className="Orange-To-Blue">
-          <span className="Star-Bar-Number-Of-Stars">3 star</span>
-          <div className="Star-Bar">
-            <div style={{width: 2.23 * getPercentage(props.stars.three, props.numberOfRatings)}} className="Star-Progress-Bar"></div>
-          </div>
-          <span className="Star-Percentage">{getPercentage(props.stars.three, props.numberOfRatings)}%</span>
-        </a>
-      </div>
-      <div className="Star-Bar-Container">
-        <a className="Orange-To-Blue">
-          <span className="Star-Bar-Number-Of-Stars">2 star</span>
-          <div className="Star-Bar">
-            <div style={{width: 2.23 * getPercentage(props.stars.two, props.numberOfRatings)}} className="Star-Progress-Bar"></div>
-          </div>
-          <span className="Star-Percentage">{getPercentage(props.stars.two, props.numberOfRatings)}%</span>
-        </a>
-      </div>
-      <div className="Star-Bar-Container">
-        <a className="Orange-To-Blue">
-          <span className="Star-Bar-Number-Of-Stars">1 star</span>
-          <div className="Star-Bar">
-            <div style={{width: 2.23 * getPercentage(props.stars.one, props.numberOfRatings)}} className="Star-Progress-Bar"></div>
-          </div>
-          <span className="Star-Percentage">{getPercentage(props.stars.one, props.numberOfRatings)}%</span>
-        </a>
-      </div>
-      <br></br>
-      <hr></hr>
-      <br></br>
-      <div className="See-Customer-Reviews"><a className="Orange-To-Blue">See all customer reviews<i></i></a></div>
-      <br></br>
-    </div>
-  );
+StarModal.propTypes = {
+  onMouseLeave: Function,
+  onMouseEnter: Function,
+  starPosition: String,
+  numberOfRatings: Number,
+  starRating: Number,
+  stars: {
+    five: Number,
+    four: Number,
+    three: Number,
+    two: Number,
+    one: Number,
+  },
 };
 
 export default StarModal;

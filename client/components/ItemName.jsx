@@ -1,9 +1,30 @@
 import React from 'react';
 
-const ItemName = (props) => (
-  <div className="ItemName">
-    {props.name}
-  </div>
-);
+class ItemName extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
+
+
+  render() {
+    const { name } = this.props;
+    return (
+      <div className="ItemName">
+        {name}
+      </div>
+    );
+  }
+}
+
+ItemName.defaultProps = {
+  name: String,
+};
+
+ItemName.propTypes = {
+  name: String,
+};
 
 export default ItemName;
