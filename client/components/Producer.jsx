@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../css/producer.css';
 
 class Producer extends React.Component {
   constructor(props) {
@@ -11,11 +12,11 @@ class Producer extends React.Component {
   render() {
     const { producer } = this.props;
     return (
-      <div className="Producer-Name">
+      <div className={style['Producer-Name']}>
         <p>
           by
           <em> </em>
-          <a href className="Orange-To-Blue">
+          <a href className={style['Orange-To-Blue']}>
             {producer}
           </a>
         </p>

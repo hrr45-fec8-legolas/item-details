@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../css/item-details.css';
 
 class ItemDetails extends React.Component {
   constructor(props) {
@@ -11,8 +12,8 @@ class ItemDetails extends React.Component {
   render() {
     const { details } = this.props;
     return (
-      <div className="Item-Details">
-        <ul className="Item-Details-List">
+      <div className={style['Item-Details']}>
+        <ul className={style['Item-Details-List']}>
           {details.map((item, index) => (<li index={index}>{item}</li>))}
         </ul>
       </div>

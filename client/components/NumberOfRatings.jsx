@@ -1,5 +1,6 @@
 import React from 'react';
 import StarModal from './StarModal';
+import style from '../css/number-of-ratings.css';
 
 class NumberOfRatings extends React.Component {
   constructor(props) {
@@ -25,21 +26,20 @@ class NumberOfRatings extends React.Component {
             <span
               onMouseLeave={onMouseLeave}
               onMouseEnter={onMouseOver}
-              className="Star-Rating"
             >
-              <span className="Stars-Span">
+              <span>
                 <i
                   style={{ backgroundPosition: `-${starPosition}px -368px` }}
-                  className="Stars"
+                  className={style['Stars']}
                 />
               </span>
-              <span className="A-Letter-Space" />
+              <span className={style['A-Letter-Space']} />
               <span>
-                <i className="Ratings-Carrot" />
+                <i className={style['Ratings-Carrot']} />
               </span>
             </span>
-            <span className="Carrot-And-Number-Of-Ratings-Space" />
-            <a href className="Number-Of-Ratings Orange-To-Blue">
+            <span className={style['Carrot-And-Number-Of-Ratings-Space']} />
+            <a href className={`${style['Number-Of-Ratings']} ${style['Orange-To-Blue']}`}>
               {numberOfRatings}
               <span> </span>
               ratings

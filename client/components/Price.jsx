@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../css/price.css';
 
 class Price extends React.Component {
   constructor(props) {
@@ -13,8 +14,8 @@ class Price extends React.Component {
     const { price } = this.props;
     return (
       <div>
-        <span className="The-Word-Price">Price: </span>
-        <span className="Price">
+        <span className={style['The-Word-Price']}>Price: </span>
+        <span className={style['Price']}>
           $
           {price}
         </span>
