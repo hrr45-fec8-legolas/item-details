@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../css/item-name.css';
 
 class ItemName extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class ItemName extends React.Component {
   render() {
     const { name } = this.props;
     return (
-      <div className="ItemName">
+      <div className={style['ItemName']}>
         {name}
       </div>
     );

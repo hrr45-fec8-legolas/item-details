@@ -6,6 +6,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.join(__dirname, '/public/dist'),
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -20,6 +21,19 @@ module.exports = {
             ],
           },
         },
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
       },
     ],
   },

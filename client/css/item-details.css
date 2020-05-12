@@ -1,0 +1,10 @@
+.Item-Details {
+  text-align: left;
+  display: flex;
+  justify-content: left;
+}
+
+.Item-Details-List {
+  padding: 15px;
+  line-height: 19px;
+}

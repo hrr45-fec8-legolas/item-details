@@ -1,0 +1,187 @@
+.Right-Col {
+  padding: 20px;
+  width: 275px;
+  float: right;
+}
+
+.Share {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.Share-Icon:hover {
+  cursor: pointer;
+}
+
+.Orange-To-Blue {
+  color: rgb(0, 102, 192);
+}
+
+.Orange-To-Blue:hover {
+  color: rgb(196, 85, 0);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.A-Letter-Space {
+  padding: 3px;
+}
+
+.Share-Icons {
+  vertical-align: middle;
+}
+
+.Share-Icon:hover {
+  cursor: pointer;
+}
+
+.Email {
+  display: inline-block;
+  background: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIIcon-beacon_light_2x-52cea4a4792e09b18250e55c890ebf59e44f3a54._V2_.png);
+  background-size: 512px 256px;
+  width: 19px;
+  height: 17px;
+  background-position: -256px -221px;
+  background-repeat: no-repeat;
+}
+
+.Facebook {
+  display: inline-block;
+  background: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIIcon-beacon_light_2x-52cea4a4792e09b18250e55c890ebf59e44f3a54._V2_.png);
+  background-size: 512px 256px;
+  width: 17px;
+  height: 17px;
+  background-position: -297px -220px;
+  background-repeat: no-repeat;
+}
+
+.Twitter {
+  display: inline-block;
+  background: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIIcon-beacon_light_2x-52cea4a4792e09b18250e55c890ebf59e44f3a54._V2_.png);
+  background-size: 512px 256px;
+  width: 18px;
+  height: 17px;
+  background-position: -277px -220px;
+  background-repeat: no-repeat;
+}
+
+.Pinterest {
+  display: inline-block;
+  background: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIIcon-beacon_light_2x-52cea4a4792e09b18250e55c890ebf59e44f3a54._V2_.png);
+  background-size: 512px 256px;
+  width: 19px;
+  height: 17px;
+  background-position: -373px -220px;
+  background-repeat: no-repeat;
+}
+
+.Checkout {
+  border: solid;
+  border-radius: 3px;
+  border-color: lightgrey;
+  border-width: .5px;
+}
+
+.Checkout-Price {
+  font-size: 17px;
+  line-height: 1.255;
+  color: #B12704;
+  vertical-align: top;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+.Checkout-Price-Span {
+  padding-left: 20px;
+}
+
+.Checkout-Button-Container {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.Checkout-Button {
+  font-size: 14px;
+  background-image: linear-gradient(#f6dda0, #f0c14c);
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 3px;
+  border-width: 1px;
+  width: 85%;
+  height: 100%;
+  line-height: 29px;
+
+}
+
+.Checkout-Button:hover {
+  background-image: linear-gradient(#f5d689, #eeb934);
+  cursor: pointer;
+}
+
+.Shopping-Cart-Icon {
+  display: inline-block;
+  float: left;
+  margin-top: 3px;
+  margin-left: -2px;
+  background: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIIcon-sprite_2x-59b95eac1db4a9d78e1e0c0b657cf66277a106ae._V2_.png);
+  background-size: 400px 900px;
+  background-position: -35px -5px;
+  height: 25px;
+  width: 25px;
+}
+
+.Buy-Now-Button-Container {
+  text-align: center;
+}
+
+.Buy-Now-Button {
+  font-size: 14px;
+  background-image: linear-gradient(#f6c58a, #ee9322);
+  border-color: #be751a #b26d18 #9a5f15;
+  border-radius: 3px;
+  border-width: 1px;
+  width: 85%;
+  height: 100%;
+  line-height: 29px;
+
+}
+
+.Buy-Now-Button:hover {
+  background-image: linear-gradient(#f3b971, #e28614);
+  cursor: pointer;
+}
+
+.Play-Icon {
+  display: inline-block;
+  float: left;
+  margin-top: 3px;
+  margin-left: -2px;
+  background: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIIcon-sprite_2x-59b95eac1db4a9d78e1e0c0b657cf66277a106ae._V2_.png);
+  background-size: 400px 900px;
+  background-position: -35px -60px;
+  height: 25px;
+  width: 25px;
+}
+
+
+.Add-To-List-Button {
+  color: #111;
+  font-size: 14px;
+  border-color: grey;
+  text-align: left;
+  width: 85%;
+  height: 100%;
+  background-image: linear-gradient(#fcfcfd, #e8e9ec);
+  border-radius: 3px;
+  border-color: #ADB1B8 #A2A6AC #8D9096;
+  line-height: 29px;
+}
+
+.Add-To-List-Button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(#f5f7f9, #dadce1);
+}
+
+.Checkout-hr {
+  width: 85%;
+}

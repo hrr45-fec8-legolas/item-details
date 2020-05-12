@@ -7,28 +7,29 @@ import NumberOfRatings from './components/NumberOfRatings';
 import Price from './components/Price';
 import ItemDetails from './components/ItemDetails';
 import PurchaseColumn from './components/PurchaseColumn';
+import style from './css/app.css';
 
 const handleStarsMouseEnter = () => {
   setTimeout(() => {
-    document.getElementsByClassName('Star-Modal')[0].style.display = 'block';
+    document.getElementById('Star-Modal').style.display = 'block';
   }, 250);
 };
 
 const handleStarsMouseLeave = () => {
   setTimeout(() => {
-    document.getElementsByClassName('Star-Modal')[0].style.display = 'none';
+    document.getElementById('Star-Modal').style.display = 'none';
   }, 250000);
 };
 
 const handleStarModalMouseEnter = () => {
   setTimeout(() => {
-    document.getElementsByClassName('Star-Modal')[0].style.display = 'block';
+    document.getElementById('Star-Modal').style.display = 'block';
   }, 25);
 };
 
 const handleStarModalMouseLeave = () => {
   setTimeout(() => {
-    document.getElementsByClassName('Star-Modal')[0].style.display = 'none';
+    document.getElementById('Star-Modal').style.display = 'none';
   }, 200);
 };
 
@@ -63,7 +64,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getData(window.location.href.slice(26));
+    const params = new URLSearchParams(document.location.search.substring(1));
+    this.getData(params.get('id'));
   }
 
   getData(itemId) {
@@ -137,7 +139,7 @@ class App extends React.Component {
     const { position } = this.state;
     return (
       <div>
-        <div className="Left-Col">
+        <div className={style['Left-Col']}>
           <ItemName name={data.productName} />
           <Producer producer={data.producer} />
           <NumberOfRatings
@@ -161,6 +163,6 @@ class App extends React.Component {
   }
 }
 
-// ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('item-details'));
 
 export default App;
