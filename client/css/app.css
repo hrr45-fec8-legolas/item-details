@@ -1,4 +1,27 @@
-.Left-Col {
+.Left-Col-Container {
   width: 57%;
-  float: left;
+}
+
+.Right-Col-Container {
+  width: 33%;
+}
+
+#Main-Container {
+  z-index: 1;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 13px;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+.Basic-hr {
+  background-color: transparent;
+  display: block;
+  height: 1px;
+  border-width: 0;
+  border-top: 1px solid #e7e7e7;
+  line-height: 19px;
+  margin-top: 0;
+  margin-bottom: 14px;
 }

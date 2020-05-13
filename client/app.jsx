@@ -138,26 +138,30 @@ class App extends React.Component {
     const { starRating } = this.state;
     const { position } = this.state;
     return (
-      <div>
-        <div className={style['Left-Col']}>
-          <ItemName name={data.productName} />
-          <Producer producer={data.producer} />
-          <NumberOfRatings
-            starModalMouseEnter={handleStarModalMouseEnter}
-            starModalMouseLeave={handleStarModalMouseLeave}
-            onMouseOver={handleStarsMouseEnter}
-            onFocus={handleStarsMouseEnter}
-            onMouseLeave={handleStarsMouseLeave}
-            starRating={starRating}
-            stars={data.starPercentages}
-            starPosition={position}
-            numberOfRatings={data.numberOfRatings}
-          />
-          <hr />
-          <Price price={data.price} />
-          <ItemDetails details={data.productInfo} />
+      <div id={style['Main-Container']}>
+        <div className={style['Left-Col-Container']}>
+          <div>
+            <ItemName name={data.productName} />
+            <Producer producer={data.producer} />
+            <NumberOfRatings
+              starModalMouseEnter={handleStarModalMouseEnter}
+              starModalMouseLeave={handleStarModalMouseLeave}
+              onMouseOver={handleStarsMouseEnter}
+              onFocus={handleStarsMouseEnter}
+              onMouseLeave={handleStarsMouseLeave}
+              starRating={starRating}
+              stars={data.starPercentages}
+              starPosition={position}
+              numberOfRatings={data.numberOfRatings}
+              />
+            <hr className={style['Basic-hr']}/>
+            <Price price={data.price} />
+            <ItemDetails details={data.productInfo} />
+          </div>
         </div>
-        <PurchaseColumn price={data.price.toFixed(2)} />
+        <div className={style['Right-Col-Container']}>
+          <PurchaseColumn price={data.price.toFixed(2)} />
+        </div>
       </div>
     );
   }
