@@ -1,4 +1,6 @@
 .Star-Modal {
+  position: absolute;
+  margin-left: -162.5px;
   background-color: #fff;
   display: none;
   z-index: 2;
@@ -93,4 +95,15 @@
 
 .Star-Percentage {
   float: right;
+}
+
+.Basic-hr {
+  background-color: transparent;
+  display: block;
+  height: 1px;
+  border-width: 0;
+  border-top: 1px solid #e7e7e7;
+  line-height: 19px;
+  margin-top: 0;
+  margin-bottom: 14px;
 }

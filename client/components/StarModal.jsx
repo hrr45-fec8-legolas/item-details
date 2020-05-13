@@ -121,7 +121,7 @@ class StarModal extends React.Component {
           </a>
         </div>
         <br />
-        <hr />
+        <hr className={style['Basic-hr']}/>
         <br />
         <div className={style['See-Customer-Reviews']}>
           <a href className={style['Orange-To-Blue']}>See all customer reviews</a>
