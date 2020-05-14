@@ -70,7 +70,7 @@ class App extends React.Component {
 
   getData(itemId) {
     $.ajax({
-      url: `http://localhost:3002/items/${itemId}`,
+      url: `/items/${itemId}`,
       type: 'GET',
       success: (data) => {
         this.setState({
