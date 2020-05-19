@@ -39,21 +39,21 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: {
-        id: -5,
-        productName: 'dummy',
-        producer: 'dummy',
-        answeredQuestions: 'dummy',
-        numberOfRatings: 'dummy',
+        id: 0,
+        productName: '',
+        producer: '',
+        answeredQuestions: '',
+        numberOfRatings: '',
         starPercentages: {
-          one: -5,
-          two: -5,
-          three: -5,
-          four: -5,
-          five: -5,
+          one: 0,
+          two: 0,
+          three: 0,
+          four: 0,
+          five: 0,
         },
-        price: -5,
+        price: 0,
         inStock: true,
-        productInfo: ['dummy', 'dummy', 'dummy', 'dummy', 'dummy'],
+        productInfo: ['', '', '', '', ''],
       },
       starRating: 5,
     };
